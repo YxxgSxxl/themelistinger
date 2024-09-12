@@ -31,11 +31,20 @@ function themedir_list(): void {
     // Liste tout les thèmes retrouvés dans le fichier racine des thèmes du moteur WordPress
     $themesdir = scandir(get_theme_root() .'');
 
-    echo "<h2>Liste de tous les themes</h2>";
+    echo "<h2>List of themes</h2>";
 
+    // Affiche la liste des dossiers/fichiers
     foreach($themesdir as $onedir) {
         echo '<ul>';
         echo '<li>' . $onedir . '</li>';
         echo '</ul>';
     }
 }
+
+function themedir_list_shortcode(): string {
+    ob_start();
+    themedir_list();
+    return ob_get_clean();
+}
+
+add_shortcode('theme_list','themedir_list_shortcode');

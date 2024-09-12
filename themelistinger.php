@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Own Plugin (themes listinger)
+Plugin Name: Theme Listinger
 Description: A simple security plugin to list all themes
 Tags: security, themes, ownplugin
 Version: 1.0
@@ -16,6 +16,8 @@ function theme_listing_page(): void {
     echo "<div>
             <h1>Themes Listinger</h1>
     </div>";
+
+    themedir_list();
 }
 
 function theme_listing_menu(): void {

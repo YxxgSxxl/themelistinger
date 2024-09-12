@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Theme Listinger
-Description: A simple security plugin to list all themes
+Description: A simple security plugin to list all themes and manage them
 Tags: security, themes, ownplugin
 Version: 1.0
 Author: YxxgSxxl
@@ -12,9 +12,9 @@ if(!defined("ABSPATH")) {
     exit; // Interdit l'accès direct
 }
 
-/////////////////////////
-// Config plugin/pages //
-/////////////////////////
+////////////////////////////
+// Config plugin et pages //
+////////////////////////////
 function theme_main_page(): void {
     echo "<div>
             <h1>Themes Listinger</h1>
@@ -37,6 +37,20 @@ function theme_listing_menu(): void {
 }
 
 add_action('admin_menu','theme_listing_menu');
+
+// Fonction qui sera lancée lors de l'activation du plugin
+function plugin_activation(): void {
+    // Creation d'une table pour le plugin dans la BDD
+    global $wpdb;
+    $table_name = $wpdb->prefix.'theme_listinger';
+    // FIX: Code manquant (requête SQL)
+
+    // Quand plugin activé, redirection sur un site internet
+    header("Location: http://www.perdu.com/");
+    exit;
+}
+
+register_activation_hook(__FILE__,"plugin_activation");
 
 //////////////////////////////
 // Fonctionnement du plugin //

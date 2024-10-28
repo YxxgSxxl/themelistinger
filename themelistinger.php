@@ -41,6 +41,8 @@ add_action('admin_menu','theme_listing_menu');
 // Fonction qui sera lancée lors de l'activation du plugin
 function plugin_activation(): void {
     // Creation d'une table pour le plugin dans la BDD
+
+    /** @var wpdb $wpdb */
     global $wpdb;
     $table_name = $wpdb->prefix.'theme_listinger';
     // FIX: Code manquant (requête SQL)
